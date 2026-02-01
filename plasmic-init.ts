@@ -1,5 +1,5 @@
 import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
-
+import  HeroSection from "./pages/com/HeroSection";
 export const PLASMIC = initPlasmicLoader({
   projects: [
     {
@@ -12,9 +12,20 @@ export const PLASMIC = initPlasmicLoader({
   // For development, you can set preview to true, which will use the unpublished
   // project, allowing you to see your designs without publishing.  Please
   // only use this for development, as this is significantly slower.
-  preview: false,
+  preview: true,
 });
-
+PLASMIC.registerComponent(HeroSection, {
+  name: "HeroSection",
+  props: {
+    title: {
+      type: "string",
+      defaultValue: "Welcome to our website",
+    },
+    subtitle: {
+      type: "string",
+    },
+  },
+});
 // You can register any code components that you want to use here; see
 // https://docs.plasmic.app/learn/code-components-ref/
 // And configure your Plasmic project to use the host url pointing at
