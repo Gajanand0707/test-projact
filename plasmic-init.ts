@@ -7,52 +7,159 @@ export const PLASMIC = initPlasmicLoader({
       token: "7axkhbtt0OyMfSypAgGS6oTD1DG0NiBBGdcrZrGjKliqLJRyhSDImtRx3WiDQfr0f9nCbXFNqvWyFYt3TXw",
     },
   ],
-
-  // By default Plasmic will use the last published version of your project.
-  // For development, you can set preview to true, which will use the unpublished
-  // project, allowing you to see your designs without publishing.  Please
-  // only use this for development, as this is significantly slower.
   preview: process.env.NODE_ENV !== 'production',
-
 });
-import CTASection from "./pages/com/CTASection";
 
+// Import ALL your components
+import CTASection from "./pages/com/CTASection";
+import Banner from "./pages/com/Banner";        // Your CSS Banner
+import Products from "./pages/com/Products";     // Products grid
+import About from "./pages/com/About";          // About + stats
+import SimpleButton from "./pages/com/Button";
+import Services from "./pages/com/Services";
+import Work from "./pages/com/Work";            // Portfolio grid
+import BannerSection from "./pages/com/BannerSection"; // Plasmic Banner
+import DateTimeStepStatic from "./pages/com/DateTimeStepStatic";
+
+// Register ALL components
 PLASMIC.registerComponent(CTASection, {
   name: "CTASection",
   props: {
-    heading: { type: "string", description: "Main heading", defaultValue: "Have a question? Contact us!" },
-    headingColor: { type: "color", description: "Heading color", defaultValue: "#1a1a1a" },
-    headingSize: { type: "string", description: "Heading font size", defaultValue: "1.75rem" },
-    subtext: { type: "string", description: "Subtext/description", defaultValue: "Call by clicking the button on the right →" },
-    subtextColor: { type: "color", description: "Subtext color", defaultValue: "#666666" },
-    subtextSize: { type: "string", description: "Subtext font size", defaultValue: "1.125rem" },
-    buttonText: { type: "string", description: "Button text", defaultValue: "Call us" },
-    buttonHref: { type: "string", description: "Button link (tel: or URL)", defaultValue: "tel:+14031234567" },
+    heading: { type: "string", defaultValue: "Have a question? Contact us!" },
+    headingColor: { type: "color", defaultValue: "#1a1a1a" },
+    headingSize: { type: "string", defaultValue: "1.75rem" },
+    subtext: { type: "string", defaultValue: "Call by clicking the button →" },
+    subtextColor: { type: "color", defaultValue: "#666666" },
+    buttonText: { type: "string", defaultValue: "Call us" },
+    buttonHref: { type: "string", defaultValue: "tel:+14031234567" },
     buttonIcon: {
       type: "choice",
-      description: "Button icon",
-      options: [
-        "phone", "mail", "message-circle", "headphones", "help-circle",
-        "arrow-right", "chevron-right", "external-link"
-      ],
+      options: ["phone", "mail", "message-circle", "headphones"],
       defaultValue: "phone"
     },
-    buttonBgColor: { type: "color", description: "Button background", defaultValue: "#D97639" },
-    buttonTextColor: { type: "color", description: "Button text color", defaultValue: "white" },
-    buttonHoverColor: { type: "color", description: "Button hover color", defaultValue: "#C06020" },
-    bgColor: { type: "color", description: "Background color", defaultValue: "white" },
-    borderColor: { type: "color", description: "Border color", defaultValue: "#e5e7eb" },
-    padding: { type: "string", description: "Section padding", defaultValue: "2.5rem 3rem" },
-    margin: { type: "string", description: "Section margin", defaultValue: "3rem 0" },
-    maxWidth: { type: "string", description: "Maximum width", defaultValue: "1280px" },
+    buttonBgColor: { type: "color", defaultValue: "#D97639" },
+    buttonTextColor: { type: "color", defaultValue: "white" },
+  },
+});
+PLASMIC.registerComponent(Services, {
+  name: "Services",
+  props: {
+    title: {
+      type: "string",
+      defaultValue: "Our Services"
+    },
+    activeFilter: {
+      type: "choice",
+      options: ["all", "Haircut", "Beard", "Kids"],
+      defaultValue: "Haircut"
+    }
+  }
+});
+
+PLASMIC.registerComponent(DateTimeStepStatic, {
+  name: "DateTimeStepStatic",
+  props: {
+    title: {
+      type: "string",
+      defaultValue: "Book Your Appointment"
+    }
+   
+  }
+});
+
+PLASMIC.registerComponent(Banner, {
+  name: "Banner",
+  description: "Pure CSS animated banner slider",
+  props: {
+    title: { type: "string", defaultValue: "Simple Web Solutions" },
+    subtitle: { type: "string", defaultValue: "Responsive designs & SEO" },
+    buttonText: { type: "string", defaultValue: "Get Started" },
+    buttonLink: { type: "string", defaultValue: "#products" },
+    slide1Bg: { type: "string", defaultValue: "linear-gradient(to br, #3b82f6, #9333ea)" },
+    slide2Bg: { type: "string", defaultValue: "linear-gradient(to br, #10b981, #f59e0b)" },
+    slideDuration: { type: "string", defaultValue: "20s" },
   },
 });
 
-// You can register any code components that you want to use here; see
-// https://docs.plasmic.app/learn/code-components-ref/
-// And configure your Plasmic project to use the host url pointing at
-// the /plasmic-host page of your nextjs app (for example,
-// http://localhost:3000/plasmic-host).  See
-// https://docs.plasmic.app/learn/app-hosting/#set-a-plasmic-project-to-use-your-app-host
+PLASMIC.registerComponent(Products, {
+  name: "Products",
+  props: {
+    title: { 
+      type: "string", 
+      defaultValue: "Our Products" 
+    },
+    // Pass entire products array as ONE prop
+    productsData: {
+      type: "array",
+      defaultValue: [
+        {
+          img: "https://via.placeholder.com/400x200/2563eb/ffffff",
+          title: "Pro Slider Kit",
+          description: "Responsive carousels"
+        }
+      ]
+    }
+  }
+});
 
-// PLASMIC.registerComponent(...);
+PLASMIC.registerComponent(SimpleButton, {
+  name: "SimpleButton",
+  props: {
+    id: "string",
+    title: "string"
+  }
+});
+
+PLASMIC.registerComponent(About, {
+  name: "About",
+  description: "About section with stats",
+  props: {
+    title: { type: "string", defaultValue: "About Us" },
+    description: { type: "string", defaultValue: "Team description" },
+    stats: {
+      type: "array",
+      itemType: {
+        type: "object",
+        properties: {
+          value: { type: "string" },
+          label: { type: "string" },
+        }
+      }
+    }
+  },
+});
+
+PLASMIC.registerComponent(Work, {
+  name: "Work",
+  description: "Portfolio/work showcase grid",
+  props: {
+    title: { type: "string", defaultValue: "Our Work" },
+    works: {
+      type: "array",
+      itemType: {
+        type: "object",
+        properties: {
+          img: { type: "imageUrl" },
+          title: { type: "string" },
+          alt: { type: "string" },
+          description: { type: "string" },
+        }
+      }
+    }
+  },
+});
+
+PLASMIC.registerComponent(BannerSection, {
+  name: "BannerSection",
+  description: "Advanced hero banner with buttons",
+  props: {
+    title: { type: "string", defaultValue: "Build modern experiences" },
+    subtitle: { type: "string", defaultValue: "Welcome" },
+    description: { type: "string", defaultValue: "Fully customizable banner" },
+    backgroundImage: { type: "imageUrl" },
+    primaryButtonText: { type: "string", defaultValue: "Get Started" },
+    primaryButtonHref: { type: "string", defaultValue: "/get-started" },
+    secondaryButtonText: { type: "string", defaultValue: "Learn More" },
+    secondaryButtonHref: { type: "string", defaultValue: "/about" },
+  },
+});
