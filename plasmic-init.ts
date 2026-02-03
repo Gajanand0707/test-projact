@@ -63,7 +63,7 @@ PLASMIC.registerComponent(DateTimeStepStatic, {
       type: "string",
       defaultValue: "Book Your Appointment"
     }
-   
+
   }
 });
 
@@ -84,9 +84,9 @@ PLASMIC.registerComponent(Banner, {
 PLASMIC.registerComponent(Products, {
   name: "Products",
   props: {
-    title: { 
-      type: "string", 
-      defaultValue: "Our Products" 
+    title: {
+      type: "string",
+      defaultValue: "Our Products"
     },
     // Pass entire products array as ONE prop
     productsData: {
@@ -112,40 +112,67 @@ PLASMIC.registerComponent(SimpleButton, {
 
 PLASMIC.registerComponent(About, {
   name: "About",
-  description: "About section with stats",
   props: {
-    title: { type: "string", defaultValue: "About Us" },
-    description: { type: "string", defaultValue: "Team description" },
+    title: {
+      type: "string",
+      defaultValue: "About Us",
+    },
+    description: {
+      type: "string",
+      defaultValue:
+        "Jaipur-based team creating pure CSS sites. Fast, responsive, and SEO-friendly—from concept to launch.",
+    },
     stats: {
       type: "array",
       itemType: {
         type: "object",
-        properties: {
+        fields: {
           value: { type: "string" },
           label: { type: "string" },
-        }
-      }
-    }
+        },
+      },
+      defaultValue: [
+        { value: "10+", label: "Projects Live" },
+        { value: "100%", label: "Mobile-First" },
+      ],
+    },
   },
 });
 
+
 PLASMIC.registerComponent(Work, {
   name: "Work",
-  description: "Portfolio/work showcase grid",
   props: {
-    title: { type: "string", defaultValue: "Our Work" },
+    title: {
+      type: "string",
+      defaultValue: "Our Work",
+    },
     works: {
       type: "array",
       itemType: {
         type: "object",
-        properties: {
-          img: { type: "imageUrl" },
+        fields: {
+          img: { type: "string" },
           title: { type: "string" },
           alt: { type: "string" },
           description: { type: "string" },
-        }
-      }
-    }
+        },
+      },
+      defaultValue: [
+        {
+          img: "https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg",
+          title: "Miami Restaurant",
+          alt: "Miami Restaurant Site",
+          description: "A vibrant website for a Miami-based restaurant.",
+        },
+        {
+          img: "https://images.pexels.com/photos/1591060/pexels-photo-1591060.jpeg",
+          title: "Orlando Portfolio",
+          alt: "Orlando Portfolio",
+          description: "Creative portfolio for Orlando design agency.",
+        },
+      ],
+    },
   },
 });
 

@@ -1,13 +1,22 @@
 import React from 'react';
+type Stat = {
+  value: string;
+  label: string;
+};
 
+type AboutProps = {
+  title?: string;
+  description?: string;
+  stats?: Stat[];
+};
 const About = ({
   title = "About Us",
-  description = "Jaipur-based team creating pure CSS sites. Fast, responsive, and SEO-friendly—from concept to launch.",
+  description = "Jaipur-based team creating pure CSS sites...",
   stats = [
     { value: "10+", label: "Projects Live" },
     { value: "100%", label: "Mobile-First" }
   ]
-}) => {
+}: AboutProps) => {
   return (
     <div>
       <section id="about">

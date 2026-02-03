@@ -1,5 +1,15 @@
 import { useState, useEffect } from 'react';
+type WorkItem = {
+  img: string;
+  title: string;
+  alt?: string;
+  description?: string;
+};
 
+type WorkProps = {
+  title?: string;
+  works?: WorkItem[];
+};
 const Work = ({
   title = "Our Work",
   works = [
@@ -7,28 +17,16 @@ const Work = ({
       img: "https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg",
       title: "Miami Restaurant",
       alt: "Miami Restaurant Site",
-      description: "A vibrant website for a Miami-based restaurant."
+      description: "A vibrant website for a Miami-based restaurant.",
     },
     {
       img: "https://images.pexels.com/photos/1591060/pexels-photo-1591060.jpeg",
       title: "Orlando Portfolio",
       alt: "Orlando Portfolio",
-      description: "Creative portfolio for Orlando design agency."
+      description: "Creative portfolio for Orlando design agency.",
     },
-    {
-      img: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg",
-      title: "Texas E-commerce",
-      alt: "Texas E-commerce Site",
-      description: "High-performance online store for Texas retailers."
-    },
-    {
-      img: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg",
-      title: "Jaipur Local App",
-      alt: "Jaipur Local App",
-      description: "Mobile-first landing for Jaipur businesses."
-    }
-  ]
-}) => {
+  ],
+}: WorkProps) => {
   const [visibleCount, setVisibleCount] = useState(2);
 
   // Detect button focus by ID only
