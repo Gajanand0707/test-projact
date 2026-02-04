@@ -390,3 +390,169 @@ html {
     padding-top: 10vh;
   }
 }
+
+.dt-wrapper {
+  max-width: 900px;
+  margin: auto;
+  font-family: system-ui, sans-serif;
+}
+
+.dt-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.dt-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.dt-header p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.dt-timezone {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.dt-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.dt-card.mt {
+  margin-top: 1.5rem;
+}
+
+.dt-date-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dt-date-row button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.dt-date-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.dt-date {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.dt-date.active {
+  border-color: #f97316;
+  background: #fff7ed;
+}
+
+.dt-date span {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #777;
+}
+
+.dt-date strong {
+  display: block;
+  font-size: 1.1rem;
+}
+
+.dt-date em {
+  font-style: normal;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.dt-calendar {
+  background: #391709;
+  color: #fff;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+}
+
+.dt-sub {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.dt-slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.75rem;
+}
+
+.dt-slot {
+  border: 1px solid #d1d5db;
+  padding: 0.6rem;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.dt-slot.active {
+  background: #f97316;
+  color: #fff;
+  border-color: #f97316;
+}
+
+.dt-selected {
+  margin-top: 1.5rem;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.dt-nav {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.dt-nav button {
+  flex: 1;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.dt-nav .secondary {
+  border: 1px solid #d1d5db;
+  background: #fff;
+}
+
+.dt-nav .primary {
+  background: #f97316;
+  color: #fff;
+  border: none;
+}
+
+.dt-nav button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

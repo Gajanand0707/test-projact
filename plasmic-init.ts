@@ -20,6 +20,7 @@ import Services from "./pages/com/Services";
 import Work from "./pages/com/Work";            // Portfolio grid
 import BannerSection from "./pages/com/BannerSection"; // Plasmic Banner
 import DateTimeStepStatic from "./pages/com/DateTimeStepStatic";
+import ServiceSelectionStatic from "./pages/com/ServiceSelectionStatic";
 
 // Register ALL components
 PLASMIC.registerComponent(CTASection, {
@@ -67,6 +68,27 @@ PLASMIC.registerComponent(DateTimeStepStatic, {
   }
 });
 
+PLASMIC.registerComponent(ServiceSelectionStatic, {
+  name: "ServiceSelectionStatic",
+  props: {
+    title: {
+      type: "string",
+      defaultValue: "Book Your Appointment",
+    },
+    tabAlign: {
+      type: "choice",
+      options: ["left", "center", "right"], // Plasmic will show a dropdown
+      defaultValue: "center",               // default alignment
+      description: "Alignment of the department tabs",
+    },
+    servicesView: {
+      type: "choice",
+      options: ["grid", "list", "flex"], // Display style for services
+      defaultValue: "grid",
+      description: "Layout style for the services (grid, list, or horizontal flex)",
+    },
+  },
+});
 PLASMIC.registerComponent(Banner, {
   name: "Banner",
   description: "Pure CSS animated banner slider",
